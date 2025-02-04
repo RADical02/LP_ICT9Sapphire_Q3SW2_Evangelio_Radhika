@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Calculator</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1000px;
+        }
+        .calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+        }
+        .calculator h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .input-box {
+            background: #e3e3e3;
+            text-align: right;
+            font-size: 24px;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .btn-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .btn {
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <h1>C A L C U L A T O R</h1>
+        <input type="number" id="num1" class="form-control input-box" placeholder="Enter A">
+        <input type="number" id="num2" class="form-control input-box" placeholder="Enter B">
+
+        <div class="btn-group mt-3">
+            <button type="button" class="btn btn-success" onclick="plus()">Add</button>
+            <button type="button" class="btn btn-success" onclick="remainder()">Remainder</button>
+            <button type="button" class="btn btn-success" onclick="exponent()">Exponent</button>
+            <button type="button" class="btn btn-success" onclick="equals()">Equals</button>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3" onclick="location.reload()">Refresh</button>
+
+        <h2 id="result" class="mt-3">ANSWER HERE</h2>
+    </div>
+
+    <script>
+        function plus() {
+            let add1 = Number(document.getElementById("num1").value);
+            let add2 = Number(document.getElementById("num2").value);
+            let sum = add1 + add2;
+            document.getElementById('result').innerHTML = `Result: ${sum}`;
+        }
+
+        function remainder() {
+            let no1 = Number(document.getElementById("num1").value);
+            let no2 = Number(document.getElementById("num2").value);
+            let rem = no1 % no2;
+            document.getElementById('result').innerHTML = `Result: ${rem}`;
+        }
+
+        function exponent() {
+            let ex1 = Number(document.getElementById("num1").value);
+            let ex2 = Number(document.getElementById("num2").value);
+            let raisedto = ex1 ** ex2;
+            document.getElementById('result').innerHTML = `Result: ${raisedto}`;
+        }
+
+        function equals() {
+            let e1 = Number(document.getElementById("num1").value);
+            let e2 = Number(document.getElementById("num2").value);
+            let equalsto = e1 === e2;
+            document.getElementById('result').innerHTML = `Result: ${equalsto}`;
+        }
+    </script>
+
+</body>
+</html>
